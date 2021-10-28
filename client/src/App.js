@@ -31,7 +31,7 @@ class App extends Component {
 
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
-      this.setState({ web3, accounts, contract: instance }, this.runExample);
+      this.setState({ web3, accounts, contract: instance });
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
@@ -41,7 +41,7 @@ class App extends Component {
     }
   };
 
-  runExample = async () => {
+  mint = async () => {
     const { accounts, contract } = this.state;
 
     console.log(contract)
@@ -70,6 +70,12 @@ class App extends Component {
           Contract compiled. Please ensure you're on the local branch and not Ethereum mainnet
         </p>
         <h1> MAKE SURE YOUR DEV WALLET IS CONNECTED, NOT MAINNET</h1>
+        <form onSubmit={(event) => {
+                event.preventDefault()
+                this.mint()
+              }}>
+                <button className='btn btn-block btn-primary' type="submit">MINT</button>
+            </form>
         <p>
           Accept the Metamask transaction on the localhost 9545 chain to mint a token
         </p>

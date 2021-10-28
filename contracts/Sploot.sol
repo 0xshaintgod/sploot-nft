@@ -9,6 +9,7 @@ contract Sploot is ERC721, Ownable {
   uint public maxSupply = 100;
   uint internal totalSupply = 0;
 
+
   struct Splooter {
     string name;
     uint speed;
